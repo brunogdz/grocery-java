@@ -14,7 +14,7 @@ This "wiremock" directory contains a set of tools that would allow you to spin u
 ## Follow up questions
 
 ### 1. How long did you spend on the test? What would you add if you had more time? 
-I spent 3 hours on this test, I would add some other functionalities like redux without losing the data if refresh the page, create more design, creating a login page or show if is the manager or the customer, so can validate and dispatch to the kitchen and start the production
+I spent 3 hours on this test. I'd add a few other features, such as redux without losing the data if you refresh the page, create more design, create a login page or show whether you're the manager or the customer, so you can validate and send it to the kitchen and start production
 ### 2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 Redux, I used the kit and created the store info, the code is:
 ```
@@ -30,7 +30,7 @@ const store = configureStore({
 export default store;
 ```
 
-now it uses in a different way, we don't need to create the store on the redux toolkit, now we can only setup the reducer and I needed to create the orderSlice to create the reducers functions and is done.
+Now it is used in a different way, we don't need to create the store in the redux toolkit, now we can only configure the reducer and I needed to create the orderSlice to create the functions of the reducer and that's it.
 
 ```
 const orderSlice = createSlice({
@@ -48,21 +48,33 @@ const orderSlice = createSlice({
 });
 ```
 ### 3. What did you find most difficult?
-I was trying to access the api but I got some issues with the CORS, so I needed to change on the json files the header, and creating a friendly design that any user could understand how works and could access properly
+I was trying to access the API, but I had some problems with CORS, so I had to change the header in the json files, and create a user-friendly design that any user could understand how it works and access correctly
 
 ### 4. What mechanism did you put in place to track down issues in production on this code? If you didn’t put anything, write down what you could do.
-to not stop I created some validations to check if getting correct the data, and some consoles to see if was working. I added redux so it's saving the state between the pages, but for the API for example I'd create a json file to store the info from the api, so if wasn't possible to access the service I will check on the JSON saved
+In order not to stop, I created some validations to check that the data was correct and some consoles to see if they were working. I added redux to save the state between pages, but for the API, for example, I would create a json file to store the API information, so if I couldn't access the service, I would check the saved JSON
 
 ### 5. The Wiremock represents one source of information. We should be prepared to integrate with more sources. List the steps that we would need to take to add more sources of items with diferent formats and promotions
-For the steps we should create a way to 
-1 - define the new data sources and the formats, if will be as JSON, CSV or third-app services. 
-2 - Create a data processing so can transform the data from different formats into a format that we can use.
+For the steps, we must create a way of 
+1 - Define the new data sources and formats, whether they will be JSON, CSV or third-party services. 
+2 - Create data processing that can transform data from different formats into a format we can use.
 3 - Implement error handling 
-4 - Create interface methods so can fetch all the items, promotions, outofStock
+4 - Create interface methods to search for all items, promotions, out of stock
 5 - Update the promotion to handle different promotion formats, so create combos 
-6 - Testing, end-to-end testes to cover the data flow
-7 - Validation if the methods and the logic is working
+6 - Testing, end-to-end testing to cover the flow of data
+7 - Validating that the methods and logic are working
 
+
+
+
+## Other Information
+I added docker to run the frontend, I was getting some errors when running start.sh in the dockerfile, so I just opened the terminal and ran 
+```
+docker compose up
+```
+
+and run the java server in another terminal
+
+and it can now be tested on port http://localhost:3000
 
 
 

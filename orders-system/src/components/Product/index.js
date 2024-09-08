@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './index.css'
 import pizzaImage from '../../assets/pizza.jpg'
 import burgerImage from '../../assets/burger.jpg';
