@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  wiremock:
+    build:
+      context: .
+      dockerfile: Dockerfile  
+    ports:
+      - '8081:8081'
+    volumes:
+      - ./wiremock-standalone-2.14.0.jar:/wiremock/wiremock-standalone-2.14.0.jar
+      - ./start.sh:/wiremock/start.sh
+
+  orders-system:
+    build:
+      context: ./orders-system  
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - wiremock  

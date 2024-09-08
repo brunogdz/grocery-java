@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// Helper function to fetch product promotions based on the product ID
 const fetchProductDetails = async (productId) => {
   try {
     const response = await fetch(`http://127.0.0.1:8081/products/${productId}`);
@@ -14,10 +13,9 @@ const fetchProductDetails = async (productId) => {
   }
 };
 
-const OrderSummary = ({ order }) => {
+const OrderSummary = ({ order, setTotalPrice }) => {
   const [promotions, setPromotions] = useState({});
 
-  // Fetch promotions for each unique product in the order
   useEffect(() => {
     const fetchPromotions = async () => {
       const uniqueProducts = [...new Set(order.map((item) => item.id))];
@@ -40,7 +38,6 @@ const OrderSummary = ({ order }) => {
     let totalSavings = 0;
     let totalPrice = 0;
 
-    // Group items by their ID to calculate promotions correctly
     const itemGroups = order.reduce((acc, item) => {
       acc[item.id] = acc[item.id] ? acc[item.id] + 1 : 1;
       return acc;
@@ -76,10 +73,10 @@ const OrderSummary = ({ order }) => {
           effectivePrice -= discount * quantity;
         }
       });
-
+      
       totalPrice += effectivePrice;
     });
-
+    setTotalPrice(totalPrice);
     return { totalPrice, totalSavings };
   };
 

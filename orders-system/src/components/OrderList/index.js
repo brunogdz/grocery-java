@@ -7,7 +7,6 @@ const OrderList = ({ addToOrder, removeFromOrder, order }) => {
   const [quantities, setQuantities] = useState({});
 
   useEffect(() => {
-    // Fetch products from the backend API
     fetch('http://127.0.0.1:8081/products')
       .then((response) => response.json())
       .then((data) => setProducts(data))
