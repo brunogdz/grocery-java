@@ -1,0 +1,5 @@
+host="localhost"
+port="8081"
+
+java -jar wiremock-standalone-2.14.0.jar --port 8081 --verbose &> wiremock.log 2>&1 &
+echo "Wiremock started on host localhost and port $port. PID : $!"

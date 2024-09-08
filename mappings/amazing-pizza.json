@@ -1,0 +1,29 @@
+{
+  "priority": 10,
+  "request": {
+    "method": "GET",
+    "urlPattern": "/products/Dwt5F7KAhi"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization"
+    },
+    "jsonBody": {
+      "id": "Dwt5F7KAhi",
+      "name": "Amazing Pizza!",
+      "price": 1099,
+      "promotions": [
+        {
+          "id": "ibt3EEYczW",
+          "type": "QTY_BASED_PRICE_OVERRIDE",
+          "required_qty": 2,
+          "price": 1799
+        }
+      ]
+    }
+  }
+}
