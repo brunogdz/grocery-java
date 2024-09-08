@@ -1,0 +1,9 @@
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 20px;
+}

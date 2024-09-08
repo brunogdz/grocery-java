@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Product from '../Product';
+import './index.css'
 
-const OrderList = ({ addToOrder }) => {
+const OrderList = ({ addToOrder, removeFromOrder, order }) => {
   const [products, setProducts] = useState([]);
+  const [quantities, setQuantities] = useState({});
 
   useEffect(() => {
     // Fetch products from the backend API
@@ -11,17 +14,26 @@ const OrderList = ({ addToOrder }) => {
       .catch((error) => console.error('Error fetching products:', error));
   }, []);
 
+  useEffect(() => {
+    const qty = {};
+    order.forEach((item) => {
+      qty[item.id] = qty[item.id] ? qty[item.id] + 1 : 1;
+    });
+    setQuantities(qty);
+  }, [order]);
+
   return (
     <div>
       <h1>Order List</h1>
-      <ul>
+      <div className='menu'>
+
         {products.map((product) => (
-          <li key={product.id}>
-            {product.name} - ${(product.price / 100).toFixed(2)}
-            <button onClick={() => addToOrder(product)}>Add to Order</button>
-          </li>
+          <div>
+            <Product key={product} id={product.id} product={product} quantities={quantities[product.id] || 0} name={product.name} addToOrder={addToOrder}
+              removeFromOrder={removeFromOrder} />
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

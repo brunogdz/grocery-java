@@ -1,0 +1,18 @@
+.container {
+    width: 200px;
+}
+
+.product-image {
+    max-width: 150px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
